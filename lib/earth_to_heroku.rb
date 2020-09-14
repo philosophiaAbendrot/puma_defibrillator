@@ -1,5 +1,5 @@
 require "earth_to_heroku/configuration"
-require "earth_to_heroku/middleware"
+require "earth_to_heroku/rack_timeout_net"
 
 module EarthToHeroku
   class EarthToHeroku
