@@ -4,7 +4,7 @@ module EarthToHeroku
       require 'earth_to_heroku/rack_timeout_net'
 
       app.config.middleware.insert_before ActionDispatch::ShowExceptions,
-                                          EarthToHeroku::RackTimeoutNet
+                                          RackTimeoutNet
     end
   end
 end
