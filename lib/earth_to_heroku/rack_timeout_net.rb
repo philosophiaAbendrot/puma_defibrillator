@@ -9,6 +9,8 @@ module EarthToHeroku
       puts "earth_to_heroku middleware running"
       puts "=================================="
       begin
+        response = @app.call(env)
+        response
       rescue Rack::Timeout::RequestTimeoutException => e
         puts "caught request timeout exception"
         raise
