@@ -3,8 +3,8 @@ module EarthToHeroku
     initializer 'earthtoheroku.middleware.rails' do |app|
       require 'earth_to_heroku/rack_timeout_net'
 
-      app.config.middleware.insert_before ActionDispatch::ShowExceptions,
-                                          RackTimeoutNet
+      app.config.middleware.insert_after Rack::Timeout,
+                                         RackTimeoutNet
     end
   end
 end
