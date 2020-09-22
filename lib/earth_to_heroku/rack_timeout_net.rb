@@ -11,8 +11,9 @@ module EarthToHeroku
       begin
         response = @app.call(env)
         response
-      rescue Rack::Timeout::RequestTimeoutException => e
-        puts "caught request timeout exception"
+      rescue Exception => e
+        puts "caught general Exception"
+        puts "exception = #{e.inspect}"
         raise
       end
     end
