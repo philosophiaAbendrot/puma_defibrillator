@@ -1,8 +1,8 @@
-require File.expand_path('../lib/earth_to_heroku/version', __FILE__)
+require File.expand_path('../lib/puma_defibrillator/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name = %q{earth_to_heroku}
-  gem.version = EarthToHeroku::VERSION
+  gem.name = %q{puma_defibrillator}
+  gem.version = PumaDefibrillator::VERSION
   gem.authors = %w{Tony\ Ha}
   gem.email = %q{tony@86network.com}
   gem.description = <<-HEREDOC

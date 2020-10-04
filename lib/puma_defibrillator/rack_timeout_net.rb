@@ -1,4 +1,4 @@
-module EarthToHeroku
+module PumaDefibrillator
   class RackTimeoutNet
     def initialize(app)
       @app = app
@@ -6,7 +6,7 @@ module EarthToHeroku
 
     def call(env)
       puts "=================================="
-      puts "earth_to_heroku middleware running"
+      puts "puma_defibrillator middleware running"
       puts "=================================="
       begin
         response = @app.call(env)
