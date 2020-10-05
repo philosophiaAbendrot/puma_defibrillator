@@ -7,7 +7,7 @@ module PumaDefibrillator
       app.config.middleware.insert_after ActionDispatch::ShowExceptions,
                                          RackTimeoutNet
 
-      ActionDispatch::ShowExceptions.send(:include, PumaDefibrillator::ShowExceptions)
+      ActionDispatch::ShowExceptions.send(:include, ShowExceptions)
     end
   end
 end
