@@ -1,6 +1,6 @@
 module PumaDefibrillator
 	module ShowExceptions
-		def render_with_exception_with_puma_defib(env, exception)
+		def render_exception_with_puma_defib(env, exception)
 			key = 'action_dispatch.show_detailed_exceptions'
 
 			if exception.is_a?(ActionController::RoutingError) && env[key]
@@ -8,7 +8,7 @@ module PumaDefibrillator
 				puts "caught exception in puma defibrillator"
 			end
 
-			render_exception_without_puma_defib
+			render_exception_without_puma_defib(env, exception)
 		end
 
 		def call_with_puma_defib(env)
