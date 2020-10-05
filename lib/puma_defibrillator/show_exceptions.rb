@@ -12,7 +12,7 @@ module PumaDefibrillator
 		end
 
 		def call_with_puma_defib(env)
-			call_without_puma_defib
+			call_without_puma_defib(env)
 		rescue ActionController::RoutingError => exception
 			scope = extract_scope_from(env)
 			raise exception
