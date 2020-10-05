@@ -1,5 +1,4 @@
 require "puma_defibrillator/configuration"
-require "puma_defibrillator/rack_timeout_net"
 require "puma_defibrillator/railtie"
 
 module PumaDefibrillator
