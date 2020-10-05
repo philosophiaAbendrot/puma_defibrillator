@@ -3,7 +3,7 @@ module PumaDefibrillator
     initializer 'puma_defibrillator.middleware.rails' do |app|
       require 'puma_defibrillator/exception_methods'
 
-      ApplicationController.send(:include, ExceptionMethods)
+      ActionController::Base.send(:include, ExceptionMethods)
     end
   end
 end
