@@ -1,13 +1,9 @@
 module PumaDefibrillator
   class Railtie < ::Rails::Railtie
     initializer 'puma_defibrillator.middleware.rails' do |app|
-      require 'puma_defibrillator/rack_timeout_net'
-      require 'puma_defibrillator/show_exceptions'
+      require 'puma_defibrillator/exception_methods'
 
-      app.config.middleware.insert_after ActionDispatch::ShowExceptions,
-                                         RackTimeoutNet
-
-      ActionDispatch::ShowExceptions.send(:include, ShowExceptions)
+      ApplicationController.send(:include, ExceptionMethods)
     end
   end
 end
