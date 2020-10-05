@@ -14,11 +14,13 @@ module PumaDefibrillator
 		end
 
 		def call_with_puma_defib(env)
+			puts "======================================="
+			puts "call_with_puma_defib checkpoing 1"
 			call_without_puma_defib(env)
+			puts "call_with_puma_defib checkpoint 2"
 		rescue ActionController::RoutingError => exception
 			scope = extract_scope_from(env)
-			puts "================================="
-			puts "triggered call_with_puma_defib"
+			puts "triggered call_with_puma_defib checkpoint 3"
 			raise exception
 		end
 
