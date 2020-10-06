@@ -3,17 +3,17 @@ require "puma_defibrillator/railtie"
 require "puma_defibrillator/heroku_restarter"
 
 module PumaDefibrillator
+  @@config = nil
+
 	class << self
 		attr_accessor :config
 
-		def self.config
+		def config
 			@@config
 		end
 
-	  @@config = Configuration.new
-	  @@instance = nil
-
-	  def self.configure
+	  def configure
+	  	@@config = Configuration.new
 	    yield @@config
 	  end
 	end
