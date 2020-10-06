@@ -3,7 +3,7 @@ require "puma_defibrillator/railtie"
 require "puma_defibrillator/heroku_restarter"
 
 module PumaDefibrillator
-	class Main
+	class << self
 		attr_accessor :config
 
 		def self.config
