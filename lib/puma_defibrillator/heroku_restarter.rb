@@ -1,8 +1,8 @@
 module PumaDefibrillator
 	class HerokuRestarter
 		def initialize(configuration)
-			@token = configuration.token
-			@dynos = configuration.dynos
+			@token = configuration.heroku_api_token
+			@dynos = configuration.dyno_list
 			@app_name = configuration.app_name
 		end
 
