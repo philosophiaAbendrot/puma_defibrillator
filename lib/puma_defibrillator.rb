@@ -1,12 +1,15 @@
 require "puma_defibrillator/configuration"
 require "puma_defibrillator/railtie"
+require "puma_defibrillator/heroku_restarter"
 
 module PumaDefibrillator
-  class PumaDefibrillator
-    @@config = Configuration.new
+  @@config = Configuration.new
 
-    def self.configure
-      yield @@config
-    end
+  def self.configure
+    yield @@config
+  end
+
+  def initialize
+  	@@restarter = HerokuRestarter.new(@@config)
   end
 end
