@@ -9,8 +9,8 @@ module PumaDefibrillator
 				config = PumaDefibrillator.config
 				puts "============================"
 	      puts "log-rack-timeout running"
-	      puts "config.token = #{config.token}"
-	      puts "config.dynos = #{config.dynos}"
+	      puts "config.token = #{config.heroku_api_token}"
+	      puts "config.dynos = #{config.dyno_list}"
 	      puts "config.app_name = #{config.app_name}"
 	      puts "============================"
 	      HerokuRestarter.new(config).call
