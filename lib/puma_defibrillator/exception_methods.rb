@@ -6,7 +6,7 @@ module PumaDefibrillator
 			rescue_from Rack::Timeout::RequestTimeoutException, with: :handle_rack_timeout
 
 			def handle_rack_timeout
-				config = PumaDefibrillator::Main.config
+				config = PumaDefibrillator.config
 				puts "============================"
 	      puts "log-rack-timeout running"
 	      puts "config.token = #{config.token}"
