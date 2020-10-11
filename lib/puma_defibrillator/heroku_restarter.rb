@@ -8,6 +8,9 @@ module PumaDefibrillator
 
 		def perform
 			puts "heroku restarter#call running"
+			puts "api_token = #{@api_token}"
+			puts "dyno_list = #{@dyno_list}"
+			puts "app_name = #{@app_name}"
 			@dyno_list.each do |dyno|
 				uri = URI(dyno_url(dyno))
 				req = Net::HTTP::Delete.new(uri.path)
