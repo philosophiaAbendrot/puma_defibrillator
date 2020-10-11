@@ -1,5 +1,5 @@
 module PumaDefibrillator
-	module ExceptionMethods
+	module RackTimeoutExceptionMethods
 		extend ActiveSupport::Concern
 
 		included do
