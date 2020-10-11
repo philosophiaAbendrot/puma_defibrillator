@@ -13,7 +13,7 @@ module PumaDefibrillator
 	      puts "config.dynos = #{config.dyno_list}"
 	      puts "config.app_name = #{config.app_name}"
 	      puts "============================"
-	      HerokuRestarter.new(config).call
+	      Delayed::Job.enqueue(HerokuRestarter.new(config))
       end
 		end
 	end

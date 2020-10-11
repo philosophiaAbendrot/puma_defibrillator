@@ -6,7 +6,7 @@ module PumaDefibrillator
 			@app_name = configuration.app_name
 		end
 
-		def call
+		def perform
 			puts "heroku restarter#call running"
 			@dyno_list.each do |dyno|
 				uri = URI(dyno_url(dyno))
