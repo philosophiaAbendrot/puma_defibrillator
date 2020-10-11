@@ -1,5 +1,4 @@
 require "puma_defibrillator/configuration"
-require "puma_defibrillator/railtie"
 require "puma_defibrillator/heroku_restarter"
 
 module PumaDefibrillator
