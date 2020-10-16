@@ -1,6 +1,6 @@
 require "puma_defibrillator/configuration"
 require "puma_defibrillator/heroku_restarter"
-# require "puma_defibrillator/rack_timeout_exception_methods"
+require "puma_defibrillator/rack_timeout_exception_methods"
 
 module PumaDefibrillator
   @@config = nil
