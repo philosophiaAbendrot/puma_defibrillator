@@ -46,8 +46,6 @@ module PumaDefibrillator
         puts "============================"
         Delayed::Job.enqueue(HerokuRestarter.new(config))
       end
-
-      raise
 		end
 	end
 end
