@@ -3,17 +3,23 @@ module PumaDefibrillator
 		extend ActiveSupport::Concern
 
 		included do
-			rescue_from Rack::Timeout::RequestTimeoutException, with: :handle_rack_timeout
+			rescue_from Exception, with: :handle_rack_timeout
 
-			def handle_rack_timeout
-				config = PumaDefibrillator.config
+			def handle_rack_timeout(exception)
 				puts "============================"
-	      puts "log-rack-timeout running"
-	      puts "config.token = #{config.heroku_api_token}"
-	      puts "config.dynos = #{config.dyno_list}"
-	      puts "config.app_name = #{config.app_name}"
-	      puts "============================"
-	      Delayed::Job.enqueue(HerokuRestarter.new(config))
+				puts "rescued exception = #{exception.to_s}"
+
+				if exception.is_a?(Rack::Timeout::RequestTimeoutException)
+					config = PumaDefibrillator.config
+		      puts "log-rack-timeout running"
+		      puts "config.token = #{config.heroku_api_token}"
+		      puts "config.dynos = #{config.dyno_list}"
+		      puts "config.app_name = #{config.app_name}"
+		      puts "============================"
+		      Delayed::Job.enqueue(HerokuRestarter.new(config))
+				end
+				
+	      raise
       end
 		end
 	end
