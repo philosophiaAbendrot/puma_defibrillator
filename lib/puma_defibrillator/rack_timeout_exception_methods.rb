@@ -37,6 +37,7 @@ module PumaDefibrillator
 		def call
 			puts "==================================="
 			puts "rescued exception = #{@exception.to_s}"
+			config = PumaDefibrillator.config
 
 			if @exception.is_a?(Rack::Timeout::RequestTimeoutException)
         puts "log-rack-timeout running"
